@@ -9,10 +9,25 @@ class Receipt:
         self.product_list.append(product)
 
     def print_list(self):
+        """
+        Prints the receipt in the format:
+        1 [name of product]: [price+tax]
+        ...
+        Sales Taxes: [Overall taxes]
+        Total: [Total Price+Taxes]
+
+        :return: void
+        """
         currentlist = self.product_list
+        overall_taxes = 0
+        overall_cost = 0
         for product in currentlist:
-            # TODO: calculate tax for product
+            current_price_and_tax, overall_tax = calculate_tax_for_product(product)
 
-            currenttax = calculate_tax_for_product(product)
+            overall_taxes += overall_tax
+            overall_cost += current_price_and_tax
 
-            print(currentlist[product.name] + ":" + " ")
+            print("1 " + product.name + ": " + str(current_price_and_tax))
+
+        print("Sales Taxes: " + str(round(overall_taxes, 2)))
+        print("Total: " + str(round(overall_cost, 2)), end='\n\n')

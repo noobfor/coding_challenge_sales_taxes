@@ -11,3 +11,5 @@ or calculated on the overall cost of the whole number of one product.
 
 For the rounding rules I assumed that because of the sales tax of 10%, rounding is being done by (10 * p)/100 and rounded up to the nearest 0.05.
 Same applies to 5% for import taxes
+
+For Output 3 I outputted "1 box of imported chocolate" instead of "1 imported box of chocolates" because of the given Input
