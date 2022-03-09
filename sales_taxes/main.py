@@ -38,6 +38,7 @@ def main():
 
     add_new_receipt = "y"
 
+    # listing loop for new receipts
     while not add_new_receipt == "n":
 
         new_product = None
