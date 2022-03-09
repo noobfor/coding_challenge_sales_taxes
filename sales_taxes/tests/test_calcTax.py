@@ -5,11 +5,41 @@ from sales_taxes.algorithms import calculate_tax
 
 class TestCalculateTax(unittest.TestCase):
 
-    def test_other_product(self):
-
+    def test_other_1(self):
         other = Product("other", 14.99, ProductType.OTHER, False)
-
         self.assertEqual(calculate_tax.calculate_tax_for_product(other), 16.49)
+
+    def test_other_2(self):
+        other = Product("other", 18.99, ProductType.OTHER, False)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(other), 20.89)
+
+    def test_imported_other_1(self):
+        other = Product("other", 47.50, ProductType.OTHER, True)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(other), 54.65)
+
+    def test_imported_other_2(self):
+        other = Product("other", 27.99, ProductType.OTHER, True)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(other), 32.19)
+
+    def test_book(self):
+        book = Product("book", 12.49, ProductType.BOOK, False)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(book), 12.49)
+
+    def test_food(self):
+        food = Product("food", 0.85, ProductType.FOOD, False)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(food), 0.85)
+
+    def test_imported_food_1(self):
+        food = Product("food", 10, ProductType.FOOD, True)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(food), 10.5)
+
+    def test_imported_food_2(self):
+        food = Product("food", 11.25, ProductType.FOOD, True)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(food), 11.85)
+
+    def test_medical(self):
+        medical = Product("medical", 9.75, ProductType.MEDICAL, False)
+        self.assertEqual(calculate_tax.calculate_tax_for_product(medical), 9.75)
 
 
 # TODO: add testcases for different type of producttypes and check for error
