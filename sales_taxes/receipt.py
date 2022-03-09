@@ -1,4 +1,4 @@
-from sales_taxes.algorithms.calculate_tax import calculate_tax_for_product, calculate_tax_for_list
+from sales_taxes.algorithms.calculate_tax import calculate_tax_for_product
 
 
 class Receipt:
@@ -18,10 +18,10 @@ class Receipt:
 
         :return: void
         """
-        currentlist = self.product_list
+        current_list = self.product_list
         overall_taxes = 0
         overall_cost = 0
-        for product in currentlist:
+        for product in current_list:
             current_price_and_tax, overall_tax = calculate_tax_for_product(product)
 
             overall_taxes += overall_tax

@@ -1,5 +1,8 @@
 # coding_challenge_sales_taxes
 
+Calculates the taxes of given products defined by the given task.
+Run the main.py to print out the desired Outputs. 
+To build the program, use pyinstaller and call "pyinstaller sales_taxes/main.py"
 
 I assumed that the import tax is applicable on all products
 

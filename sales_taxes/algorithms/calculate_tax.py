@@ -33,7 +33,3 @@ def calculate_tax_for_product(product):
     else:
         price_tax = round(product.price + basic_tax, 2)
         return price_tax, overall_tax
-
-
-def calculate_tax_for_list(product_list):
-    pass

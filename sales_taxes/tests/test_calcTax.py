@@ -42,7 +42,14 @@ class TestCalculateTax(unittest.TestCase):
         self.assertEqual(calculate_tax.calculate_tax_for_product(medical)[0], 9.75)
 
 
-# TODO: add testcases for different type of producttypes and check for error
+class TestCalculateTaxForMoreThanOne(unittest.TestCase):
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_multiple_tax(self):
+        book = Product("book", 12.49, ProductType.BOOK, False)
+        music_CD = Product("music_CD", 14.99, ProductType.OTHER, False)
+        chocolate_bar = Product("chocolate_bar", 0.85, ProductType.FOOD, False)
+        overall_tax = calculate_tax.calculate_tax_for_product(book)[1] + \
+                      calculate_tax.calculate_tax_for_product(music_CD)[1] + \
+                      calculate_tax.calculate_tax_for_product(chocolate_bar)[1]
+
+        self.assertEqual(overall_tax, 1.5)

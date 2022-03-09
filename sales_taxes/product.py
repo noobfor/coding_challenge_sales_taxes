@@ -13,6 +13,8 @@ class Product:
     def __init__(self, name, price, product_type: ProductType, imported):
         self.name = name
         self.price = price
-        # TODO: check if product type is one of the possible cases otherwise return error
-        self.product_type = product_type
+        if isinstance(product_type, ProductType):
+            self.product_type = product_type
+        else:
+            raise AttributeError
         self.imported = imported
